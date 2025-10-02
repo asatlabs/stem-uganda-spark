@@ -13,6 +13,15 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Fredoka', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        base: '16px',
+      },
+      fontWeight: {
+        normal: '800',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
