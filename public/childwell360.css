@@ -1,0 +1,496 @@
+/* ChildWell360 Standalone Styles */
+
+/* CSS Variables - Design System */
+:root {
+    --background: hsl(0, 0%, 100%);
+    --foreground: hsl(220, 13%, 20%);
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(220, 13%, 20%);
+    --primary: hsl(187, 100%, 42%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --secondary: hsl(49, 100%, 50%);
+    --secondary-foreground: hsl(220, 13%, 20%);
+    --muted: hsl(210, 40%, 96.1%);
+    --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+    --accent: hsl(270, 50%, 60%);
+    --accent-foreground: hsl(0, 0%, 100%);
+    --border: hsl(214.3, 31.8%, 91.4%);
+    --mint: hsl(160, 50%, 75%);
+    --mint-foreground: hsl(220, 13%, 20%);
+    --purple: hsl(270, 50%, 60%);
+    --purple-foreground: hsl(0, 0%, 100%);
+    --orange: hsl(25, 100%, 60%);
+    --orange-foreground: hsl(0, 0%, 100%);
+    --lavender: hsl(260, 40%, 85%);
+    --lavender-foreground: hsl(220, 13%, 20%);
+    --radius: 1rem;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-color: var(--border);
+}
+
+body {
+    font-family: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.5;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--primary);
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--secondary);
+    border-radius: 50%;
+}
+
+.rocket-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--secondary-foreground);
+}
+
+.nav-menu {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .nav-menu {
+        display: flex;
+    }
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s;
+}
+
+.nav-button-mint {
+    background-color: var(--mint);
+    color: var(--mint-foreground);
+}
+
+.nav-button-mint:hover {
+    opacity: 0.9;
+}
+
+.nav-button-purple {
+    background-color: var(--purple);
+    color: var(--purple-foreground);
+}
+
+.nav-button-purple:hover {
+    opacity: 0.9;
+}
+
+.nav-button-secondary {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+}
+
+.nav-button-secondary:hover {
+    opacity: 0.9;
+}
+
+.nav-button-lavender {
+    background-color: var(--lavender);
+    color: var(--lavender-foreground);
+}
+
+.nav-button-lavender:hover {
+    opacity: 0.9;
+}
+
+.nav-button-orange {
+    background-color: var(--orange);
+    color: var(--orange-foreground);
+}
+
+.nav-button-orange:hover {
+    opacity: 0.9;
+}
+
+.nav-button-bold {
+    font-weight: 800;
+}
+
+.mobile-menu-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-foreground);
+    padding: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}
+
+.menu-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 8rem 1.5rem 4rem;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.75rem;
+    }
+}
+
+.hero-title-accent {
+    color: var(--primary);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--muted-foreground);
+    max-width: 48rem;
+    margin: 0 auto 2rem;
+}
+
+@media (min-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: hsla(220, 13%, 20%, 0.8);
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+/* Features Section */
+.features-section {
+    margin-bottom: 4rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.feature-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.feature-icon-mint {
+    background-color: hsla(160, 50%, 75%, 0.2);
+}
+
+.feature-icon-mint .icon {
+    color: var(--mint);
+}
+
+.feature-icon-purple {
+    background-color: hsla(270, 50%, 60%, 0.2);
+}
+
+.feature-icon-purple .icon {
+    color: var(--purple);
+}
+
+.feature-icon-orange {
+    background-color: hsla(25, 100%, 60%, 0.2);
+}
+
+.feature-icon-orange .icon {
+    color: var(--orange);
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--card-foreground);
+}
+
+.feature-description {
+    color: var(--muted-foreground);
+}
+
+/* Portals Section */
+.portals-section {
+    margin-bottom: 4rem;
+}
+
+.portals-title {
+    font-size: 1.875rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--foreground);
+}
+
+.portals-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 96rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .portals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .portals-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.portal-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: box-shadow 0.2s;
+}
+
+.portal-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.portal-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.portal-icon-mint {
+    background-color: hsla(160, 50%, 75%, 0.2);
+}
+
+.portal-icon-mint .icon {
+    color: var(--mint);
+}
+
+.portal-icon-purple {
+    background-color: hsla(270, 50%, 60%, 0.2);
+}
+
+.portal-icon-purple .icon {
+    color: var(--purple);
+}
+
+.portal-icon-orange {
+    background-color: hsla(25, 100%, 60%, 0.2);
+}
+
+.portal-icon-orange .icon {
+    color: var(--orange);
+}
+
+.portal-icon-lavender {
+    background-color: hsla(260, 40%, 85%, 0.2);
+}
+
+.portal-icon-lavender .icon {
+    color: var(--lavender);
+}
+
+.portal-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.portal-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--card-foreground);
+}
+
+.portal-description {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin-bottom: 1.5rem;
+}
+
+.portal-button {
+    display: block;
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.portal-button-mint {
+    background-color: var(--mint);
+    color: var(--mint-foreground);
+}
+
+.portal-button-purple {
+    background-color: var(--purple);
+    color: var(--purple-foreground);
+}
+
+.portal-button-orange {
+    background-color: var(--orange);
+    color: var(--orange-foreground);
+}
+
+.portal-button-lavender {
+    background-color: var(--lavender);
+    color: var(--lavender-foreground);
+}
+
+.portal-button:hover {
+    opacity: 0.9;
+}
+
+/* Support Section */
+.support-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.support-card {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: hsla(187, 100%, 42%, 0.05);
+    border: 1px solid hsla(187, 100%, 42%, 0.2);
+    border-radius: var(--radius);
+}
+
+.support-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.support-description {
+    color: var(--muted-foreground);
+    margin-bottom: 1.5rem;
+}
+
+.support-button {
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 800;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.support-button:hover {
+    opacity: 0.9;
+}
