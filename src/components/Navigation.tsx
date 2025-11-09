@@ -1,15 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Rocket } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const navItems = [
-    { label: "About Us", variant: "mint" as const },
-    { label: "Programs", variant: "purple" as const },
-    { label: "Platforms & Resources", variant: "secondary" as const },
-    { label: "Impact", variant: "lavender" as const },
-    { label: "Get Involved", variant: "orange" as const },
-    { label: "Job Board", variant: "lavender" as const },
-    { label: "Policies", variant: "lavender" as const },
+    { label: "About Us", variant: "mint" as const, link: "/" },
+    { label: "Programs", variant: "purple" as const, link: "/" },
+    { label: "Platforms & Resources", variant: "secondary" as const, link: "/" },
+    { label: "Impact", variant: "lavender" as const, link: "/" },
+    { label: "Get Involved", variant: "orange" as const, link: "/" },
+    { label: "Job Board", variant: "lavender" as const, link: "/" },
+    { label: "ChildWell360", variant: "orange" as const, link: "/childwell360" },
+    { label: "Policies", variant: "lavender" as const, link: "/" },
   ];
 
   return (
@@ -23,13 +25,14 @@ const Navigation = () => {
         
         <div className="hidden lg:flex items-center gap-3 flex-wrap justify-center">
           {navItems.map((item, index) => (
-            <Button
-              key={index}
-              variant={item.variant}
-              size="nav"
-            >
-              {item.label}
-            </Button>
+            <Link key={index} to={item.link}>
+              <Button
+                variant={item.variant}
+                size="nav"
+              >
+                {item.label}
+              </Button>
+            </Link>
           ))}
           <Button
             variant="lavender"
