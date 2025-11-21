@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import SchoolProfile from "./pages/SchoolProfile";
+import Team from "./pages/Team";
 import ChildWell360 from "./pages/ChildWell360";
 import ChildWell360Login from "./pages/ChildWell360Login";
 import ChildWell360Dashboard from "./pages/ChildWell360Dashboard";
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/project/:id" element={<ProjectDetailsPage />} />
           <Route path="/school-profile" element={<SchoolProfile />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/childwell360" element={<ChildWell360 />} />
           <Route path="/childwell360/login/:role" element={<ChildWell360Login />} />
           <Route path="/childwell360/dashboard/:role" element={<ChildWell360Dashboard />} />
