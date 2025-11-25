@@ -85,15 +85,15 @@ const SchoolProfile = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-[400px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary-dark/90 z-10" />
+      <section className="relative h-[400px] overflow-hidden animate-fade-in">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90 z-10" />
         <img 
           src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&auto=format&fit=crop" 
           alt="School building"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 z-20 flex items-center justify-center text-center px-4">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl animate-fade-in">
             <Badge className="mb-4 bg-background/20 text-primary-foreground border-primary-foreground/30">
               MHPSS Partner School
             </Badge>
@@ -103,7 +103,7 @@ const SchoolProfile = () => {
             <p className="text-xl text-primary-foreground/90 mb-6">
               Building resilient futures through play-based mental health support
             </p>
-            <div className="flex items-center justify-center gap-6 text-primary-foreground/80">
+            <div className="flex items-center justify-center gap-6 text-primary-foreground/80 flex-wrap">
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 <span>Kampala, Uganda</span>
@@ -122,11 +122,11 @@ const SchoolProfile = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-12 bg-muted/30 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <Card key={index} className="border-border/50 hover:shadow-lg transition-shadow">
+              <Card key={index} className="border-border/50 hover:shadow-lg hover:scale-105 transition-all duration-300">
                 <CardContent className="pt-6">
                   <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
                   <div className="text-sm font-medium text-foreground mb-1">{stat.label}</div>
@@ -139,7 +139,7 @@ const SchoolProfile = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background animate-fade-in">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -189,7 +189,7 @@ const SchoolProfile = () => {
       </section>
 
       {/* MHPSS Activities */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30 animate-fade-in">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <Badge variant="secondary" className="mb-4">Our Approach</Badge>
@@ -278,7 +278,7 @@ const SchoolProfile = () => {
       </section>
 
       {/* Photo Gallery */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background animate-fade-in">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <Badge variant="secondary" className="mb-4">Gallery</Badge>
@@ -315,9 +315,9 @@ const SchoolProfile = () => {
       </section>
 
       {/* Project Timeline */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30 animate-fade-in">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">Our Journey</Badge>
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Project Timeline
@@ -327,29 +327,54 @@ const SchoolProfile = () => {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-border" />
-            <div className="space-y-12">
+          <div className="relative max-w-4xl mx-auto">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary via-accent to-primary" />
+            
+            <div className="space-y-16">
               {projectTimeline.map((item, index) => (
-                <div key={index} className={`flex items-center gap-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    <Card className="hover:shadow-lg transition-shadow">
-                      <CardHeader>
-                        <div className="flex items-center justify-between">
-                          <Badge variant={item.status === 'completed' ? 'default' : 'secondary'}>
+                <div 
+                  key={index} 
+                  className={`flex items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col md:flex-row`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {/* Content Card */}
+                  <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center md:text-inherit`}>
+                    <Card className="hover:shadow-xl hover:scale-105 transition-all duration-300 border-l-4 border-l-primary">
+                      <CardHeader className="pb-4">
+                        <div className={`flex items-center gap-3 mb-2 ${index % 2 === 0 ? 'md:flex-row-reverse md:justify-start' : 'md:flex-row md:justify-start'} flex-row justify-center`}>
+                          <Badge 
+                            variant={item.status === 'completed' ? 'default' : 'secondary'}
+                            className="uppercase text-xs"
+                          >
                             {item.status}
                           </Badge>
-                          <span className="text-sm text-muted-foreground">{item.date}</span>
+                          <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                            <Calendar className="w-4 h-4" />
+                            <span>{item.date}</span>
+                          </div>
                         </div>
-                        <CardTitle className="text-xl">{item.title}</CardTitle>
-                        <CardDescription>{item.description}</CardDescription>
+                        <CardTitle className="text-2xl mb-3">{item.title}</CardTitle>
+                        <CardDescription className="text-base leading-relaxed">
+                          {item.description}
+                        </CardDescription>
                       </CardHeader>
                     </Card>
                   </div>
-                  <div className="relative z-10">
-                    <div className="w-4 h-4 rounded-full bg-primary border-4 border-background" />
+                  
+                  {/* Timeline Node */}
+                  <div className="relative z-10 flex-shrink-0">
+                    <div className={`w-6 h-6 rounded-full border-4 border-background shadow-lg ${
+                      item.status === 'completed' ? 'bg-primary' : 'bg-accent'
+                    }`}>
+                      <div className={`absolute inset-0 rounded-full ${
+                        item.status === 'ongoing' ? 'animate-ping bg-accent/75' : ''
+                      }`} />
+                    </div>
                   </div>
-                  <div className="flex-1" />
+                  
+                  {/* Spacer for alternating layout */}
+                  <div className="flex-1 hidden md:block" />
                 </div>
               ))}
             </div>
@@ -358,7 +383,7 @@ const SchoolProfile = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background animate-fade-in">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
