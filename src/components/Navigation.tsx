@@ -10,6 +10,7 @@ const Navigation = () => {
     { label: "Impact", variant: "lavender" as const, link: "/" },
     { label: "Get Involved", variant: "orange" as const, link: "/" },
     { label: "Job Board", variant: "lavender" as const, link: "/" },
+    { label: "School Profile", variant: "mint" as const, link: "/school-profile.html" },
     { label: "ChildWell360", variant: "orange" as const, link: "/childwell360" },
     { label: "Policies", variant: "lavender" as const, link: "/" },
   ];
