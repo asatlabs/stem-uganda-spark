@@ -223,8 +223,8 @@ const SchoolProfile = () => {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute top-4 right-4">
-                          <div className={`w-12 h-12 rounded-full bg-${activity.color}/90 backdrop-blur-sm flex items-center justify-center`}>
-                            <Icon className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center">
+                            <Icon className="w-6 h-6 text-primary-foreground" />
                           </div>
                         </div>
                       </div>
