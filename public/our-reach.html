@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Reach - Schools We Serve</title>
     <meta name="description" content="Discover the schools across Uganda where we're making a difference through innovative STEM education programs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,8 +16,9 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(to bottom right, hsl(210 100% 95% / 0.3), hsl(0 0% 100%), hsl(210 100% 95% / 0.3));
+            font-family: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+            font-weight: 600;
+            background: hsl(0 0% 100%);
             min-height: 100vh;
             padding: 2rem;
         }
@@ -34,32 +38,33 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: hsl(210 100% 50% / 0.1);
+            background: hsl(187 100% 42% / 0.1);
             padding: 0.5rem 1rem;
             border-radius: 9999px;
             margin-bottom: 1rem;
             font-size: 0.875rem;
-            font-weight: 600;
-            color: hsl(210 100% 50%);
+            font-weight: 700;
+            color: hsl(187 100% 42%);
         }
 
         h1 {
             font-size: 3rem;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            color: hsl(0 0% 10%);
+            color: hsl(220 13% 20%);
         }
 
         h1 .highlight {
-            color: hsl(210 100% 50%);
+            color: hsl(187 100% 42%);
         }
 
         .subtitle {
             font-size: 1.25rem;
-            color: hsl(0 0% 40%);
+            color: hsl(215.4 16.3% 46.9%);
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
+            font-weight: 500;
         }
 
         #map {
@@ -72,10 +77,10 @@
         }
 
         .fallback-card {
-            background: white;
+            background: hsl(0 0% 100%);
             padding: 2rem;
             border-radius: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px hsla(187 100% 42% / 0.08);
             text-align: center;
             margin-bottom: 2rem;
         }
@@ -84,7 +89,7 @@
             width: 48px;
             height: 48px;
             margin: 0 auto 1rem;
-            color: hsl(0 0% 60%);
+            color: hsl(215.4 16.3% 46.9%);
         }
 
         .schools-grid {
@@ -96,36 +101,38 @@
 
         .school-card {
             padding: 1rem;
-            border: 1px solid hsl(0 0% 90%);
+            border: 1px solid hsl(214.3 31.8% 91.4%);
             border-radius: 0.5rem;
-            background: white;
+            background: hsl(0 0% 100%);
             transition: all 0.3s ease;
         }
 
         .school-card:hover {
-            border-color: hsl(210 100% 50%);
+            border-color: hsl(187 100% 42%);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px hsla(187 100% 42% / 0.15);
         }
 
         .school-card h3 {
-            font-weight: 600;
-            color: hsl(0 0% 10%);
+            font-weight: 700;
+            color: hsl(220 13% 20%);
             margin-bottom: 0.5rem;
             font-size: 1rem;
         }
 
         .school-address {
             font-size: 0.875rem;
-            color: hsl(0 0% 40%);
+            color: hsl(215.4 16.3% 46.9%);
             margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
         .school-stats {
             display: flex;
             gap: 1rem;
             font-size: 0.75rem;
-            color: hsl(0 0% 40%);
+            color: hsl(215.4 16.3% 46.9%);
+            font-weight: 500;
         }
 
         .stat {
@@ -149,28 +156,29 @@
 
         .stat-value {
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .stat-value.primary { color: hsl(210 100% 50%); }
-        .stat-value.secondary { color: hsl(280 100% 40%); }
-        .stat-value.accent { color: hsl(160 70% 45%); }
-        .stat-value.orange { color: hsl(25 100% 50%); }
+        .stat-value.primary { color: hsl(187 100% 42%); }
+        .stat-value.secondary { color: hsl(49 100% 50%); }
+        .stat-value.accent { color: hsl(270 50% 60%); }
+        .stat-value.orange { color: hsl(25 100% 60%); }
 
         .stat-label {
             font-size: 0.875rem;
-            color: hsl(0 0% 40%);
+            color: hsl(215.4 16.3% 46.9%);
+            font-weight: 500;
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: hsl(210 100% 50%);
+            color: hsl(187 100% 42%);
             text-decoration: none;
             margin-bottom: 2rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: transform 0.2s ease;
         }
 
@@ -347,36 +355,36 @@
 
                 marker.addListener("click", () => {
                     infoWindow.setContent(`
-                        <div style="padding: 8px; min-width: 200px; font-family: sans-serif;">
-                            <h3 style="font-weight: bold; font-size: 1.125rem; margin-bottom: 0.5rem; color: #0a0a0a;">
+                        <div style="padding: 8px; min-width: 200px; font-family: 'Fredoka', sans-serif;">
+                            <h3 style="font-weight: 700; font-size: 1.125rem; margin-bottom: 0.5rem; color: hsl(220 13% 20%);">
                                 ${school.name}
                             </h3>
-                            <p style="font-size: 0.875rem; color: #666; margin-bottom: 0.75rem;">
+                            <p style="font-size: 0.875rem; color: hsl(215.4 16.3% 46.9%); margin-bottom: 0.75rem; font-weight: 500;">
                                 ${school.address}
                             </p>
                             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                                 <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(187 100% 42%)" stroke-width="2">
                                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                                         <circle cx="9" cy="7" r="4"/>
                                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                                         <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                                     </svg>
-                                    <span style="color: #0a0a0a;"><strong>${school.students}</strong> students</span>
+                                    <span style="color: hsl(220 13% 20%); font-weight: 600;"><strong>${school.students}</strong> students</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(49 100% 50%)" stroke-width="2">
                                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                                     </svg>
-                                    <span style="color: #0a0a0a;"><strong>${school.programs}</strong> active programs</span>
+                                    <span style="color: hsl(220 13% 20%); font-weight: 600;"><strong>${school.programs}</strong> active programs</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="hsl(270 50% 60%)" stroke-width="2">
                                         <circle cx="12" cy="8" r="7"/>
                                         <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
                                     </svg>
-                                    <span style="color: #0a0a0a;"><strong>${school.impact}</strong> impact level</span>
+                                    <span style="color: hsl(220 13% 20%); font-weight: 600;"><strong>${school.impact}</strong> impact level</span>
                                 </div>
                             </div>
                         </div>
