@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Reach - Schools We Serve</title>
+    <meta name="description" content="Discover the schools across Uganda where we're making a difference through innovative STEM education programs.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, hsl(210 100% 95% / 0.3), hsl(0 0% 100%), hsl(210 100% 95% / 0.3));
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: hsl(210 100% 50% / 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: hsl(210 100% 50%);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: hsl(0 0% 10%);
+        }
+
+        h1 .highlight {
+            color: hsl(210 100% 50%);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: hsl(0 0% 40%);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        #map {
+            width: 100%;
+            height: 600px;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            animation: fadeIn 0.6s ease-out 0.2s backwards;
+        }
+
+        .fallback-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .fallback-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            color: hsl(0 0% 60%);
+        }
+
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .school-card {
+            padding: 1rem;
+            border: 1px solid hsl(0 0% 90%);
+            border-radius: 0.5rem;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .school-card:hover {
+            border-color: hsl(210 100% 50%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .school-card h3 {
+            font-weight: 600;
+            color: hsl(0 0% 10%);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .school-address {
+            font-size: 0.875rem;
+            color: hsl(0 0% 40%);
+            margin-bottom: 0.5rem;
+        }
+
+        .school-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: hsl(0 0% 40%);
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 0.6s ease-out 0.4s backwards;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value.primary { color: hsl(210 100% 50%); }
+        .stat-value.secondary { color: hsl(280 100% 40%); }
+        .stat-value.accent { color: hsl(160 70% 45%); }
+        .stat-value.orange { color: hsl(25 100% 50%); }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: hsl(0 0% 40%);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: hsl(210 100% 50%);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            #map {
+                height: 400px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="header">
+            <div class="badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Our Reach
+            </div>
+            <h1>Schools We <span class="highlight">Serve</span></h1>
+            <p class="subtitle">
+                Discover the schools across Uganda where we're making a difference through 
+                innovative STEM education programs.
+            </p>
+        </div>
+
+        <div id="map"></div>
+        <div id="fallback" style="display: none;"></div>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value primary">5</div>
+                <div class="stat-label">Partner Schools</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value secondary">1,650</div>
+                <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value accent">21</div>
+                <div class="stat-label">Active Programs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value orange">100%</div>
+                <div class="stat-label">Coverage Rate</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const schools = [
+            {
+                id: 1,
+                name: "Kampala Primary School",
+                position: { lat: 0.3476, lng: 32.5825 },
+                students: 450,
+                programs: 5,
+                impact: "High",
+                address: "Kampala, Uganda"
+            },
+            {
+                id: 2,
+                name: "Entebbe STEM Academy",
+                position: { lat: 0.0514, lng: 32.4435 },
+                students: 320,
+                programs: 4,
+                impact: "High",
+                address: "Entebbe, Uganda"
+            },
+            {
+                id: 3,
+                name: "Jinja Science School",
+                position: { lat: 0.4244, lng: 33.2041 },
+                students: 280,
+                programs: 3,
+                impact: "Medium",
+                address: "Jinja, Uganda"
+            },
+            {
+                id: 4,
+                name: "Mbarara Tech Institute",
+                position: { lat: -0.6103, lng: 30.6500 },
+                students: 390,
+                programs: 6,
+                impact: "High",
+                address: "Mbarara, Uganda"
+            },
+            {
+                id: 5,
+                name: "Gulu Innovation Hub",
+                position: { lat: 2.7747, lng: 32.2989 },
+                students: 210,
+                programs: 3,
+                impact: "Medium",
+                address: "Gulu, Uganda"
+            }
+        ];
+
+        function initMap() {
+            const center = { lat: 0.3476, lng: 32.5825 };
+            
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 7,
+                center: center,
+                styles: [
+                    {
+                        featureType: "all",
+                        elementType: "geometry",
+                        stylers: [{ color: "#f5f5f5" }]
+                    },
+                    {
+                        featureType: "water",
+                        elementType: "geometry",
+                        stylers: [{ color: "#c9e7f8" }]
+                    }
+                ]
+            });
+
+            const infoWindow = new google.maps.InfoWindow();
+
+            schools.forEach(school => {
+                const marker = new google.maps.Marker({
+                    position: school.position,
+                    map: map,
+                    title: school.name,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 12,
+                        fillColor: "#0EA5E9",
+                        fillOpacity: 1,
+                        strokeColor: "#ffffff",
+                        strokeWeight: 3
+                    }
+                });
+
+                marker.addListener("click", () => {
+                    infoWindow.setContent(`
+                        <div style="padding: 8px; min-width: 200px; font-family: sans-serif;">
+                            <h3 style="font-weight: bold; font-size: 1.125rem; margin-bottom: 0.5rem; color: #0a0a0a;">
+                                ${school.name}
+                            </h3>
+                            <p style="font-size: 0.875rem; color: #666; margin-bottom: 0.75rem;">
+                                ${school.address}
+                            </p>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                    <span style="color: #0a0a0a;"><strong>${school.students}</strong> students</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                    </svg>
+                                    <span style="color: #0a0a0a;"><strong>${school.programs}</strong> active programs</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                                        <circle cx="12" cy="8" r="7"/>
+                                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                                    </svg>
+                                    <span style="color: #0a0a0a;"><strong>${school.impact}</strong> impact level</span>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
+
+        function showFallback() {
+            document.getElementById("map").style.display = "none";
+            const fallback = document.getElementById("fallback");
+            fallback.style.display = "block";
+            fallback.innerHTML = `
+                <div class="fallback-card">
+                    <svg class="fallback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <p style="color: #666; margin-bottom: 1rem;">
+                        To view the interactive map, please add your Google Maps API key.
+                    </p>
+                    <div class="schools-grid">
+                        ${schools.map(school => `
+                            <div class="school-card">
+                                <h3>${school.name}</h3>
+                                <p class="school-address">${school.address}</p>
+                                <div class="school-stats">
+                                    <span class="stat">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                        </svg>
+                                        ${school.students}
+                                    </span>
+                                    <span class="stat">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                        </svg>
+                                        ${school.programs} programs
+                                    </span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        window.initMap = initMap;
+        window.showFallback = showFallback;
+
+        // Load Google Maps API
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        script.onerror = showFallback;
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>
